@@ -10,13 +10,13 @@ CONFIG += c++17
 
 SOURCES += \
     main.cpp \
-    studentinfo.cpp
+    itemstock.cpp
 
 HEADERS += \
-    studentinfo.h
+    itemstock.h
 
 FORMS += \
-    studentinfo.ui
+    itemstock.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

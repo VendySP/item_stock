@@ -1,5 +1,5 @@
-#ifndef STUDENTINFO_H
-#define STUDENTINFO_H
+#ifndef ITEMSTOCK_H
+#define ITEMSTOCK_H
 
 #include <QMainWindow>
 #include <QtSql>
@@ -7,22 +7,22 @@
 #include <qfileinfo>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class StudentInfo; }
+namespace Ui { class ItemStock; }
 QT_END_NAMESPACE
 
-class StudentInfo : public QMainWindow
+class ItemStock : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    StudentInfo(QWidget *parent = nullptr);
-    ~StudentInfo();
+    ItemStock(QWidget *parent = nullptr);
+    ~ItemStock();
 
 private slots:
     void on_pushButtonLogin_clicked();
 
 private:
-    Ui::StudentInfo *ui;
+    Ui::ItemStock *ui;
     QSqlDatabase mydb;
 };
-#endif // STUDENTINFO_H
+#endif // ITEMSTOCK_H

@@ -1,11 +1,11 @@
-#include "studentinfo.h"
+#include "itemstock.h"
 
 #include <QApplication>
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    StudentInfo w;
+    ItemStock w;
     w.show();
     return a.exec();
 }
