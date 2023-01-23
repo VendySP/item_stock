@@ -16,6 +16,30 @@ class ItemStock : public QMainWindow
     Q_OBJECT
 
 public:
+    QSqlDatabase mydb;
+
+    void connClose()
+    {
+        mydb.close();
+        mydb.removeDatabase(QSqlDatabase::defaultConnection);
+    }
+
+    bool connOpen()
+    {
+        mydb = QSqlDatabase::addDatabase("QSQLITE");
+           mydb.setDatabaseName("C:/Users/Vendy S.P/OneDrive - Bina Nusantara University/Tutorial/Qt Creator Project/TR_CPAD_smt5/item_stock_database.db");
+
+           if(mydb.open()){
+               qDebug()<<("Connected to database");
+               return true;
+           }
+           else{
+               qDebug()<<("Failed to open the database");
+               return false;
+           }
+    }
+
+public:
     ItemStock(QWidget *parent = nullptr);
     ~ItemStock();
 
@@ -24,6 +48,5 @@ private slots:
 
 private:
     Ui::ItemStock *ui;
-    QSqlDatabase mydb;
 };
 #endif // ITEMSTOCK_H

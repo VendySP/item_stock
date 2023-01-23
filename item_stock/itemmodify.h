@@ -2,6 +2,7 @@
 #define ITEMMODIFY_H
 
 #include <QDialog>
+#include "itemstock.h"
 
 namespace Ui {
 class ItemModify;
@@ -14,6 +15,13 @@ class ItemModify : public QDialog
 public:
     explicit ItemModify(QWidget *parent = nullptr);
     ~ItemModify();
+
+private slots:
+    void on_pushButtonSave_clicked();
+
+    void on_pushButtonUpdate_clicked();
+
+    void on_pushButtonDelete_clicked();
 
 private:
     Ui::ItemModify *ui;

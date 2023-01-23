@@ -7,13 +7,11 @@ ItemStock::ItemStock(QWidget *parent)
 {
     ui->setupUi(this);
 
-    mydb = QSqlDatabase::addDatabase("QSQLITE");
-       mydb.setDatabaseName("C:/Users/Vendy S.P/OneDrive - Bina Nusantara University/Tutorial/Qt Creator Project/TR_CPAD_smt5/item_stock_database.db");
+    if(connOpen())
+        ui->labelStatus->setText("Connected to database");
+    else
+        ui->labelStatus->setText("Failed to open the database");
 
-       if(mydb.open())
-           ui->labelStatus->setText("Connected to database");
-       else
-           ui->labelStatus->setText("Failed to open the database");
 }
 
 ItemStock::~ItemStock()
@@ -28,13 +26,16 @@ void ItemStock::on_pushButtonLogin_clicked()
     itemcode = ui->lineEditItemCode->text();
     password = ui->lineEditPassword->text();
 
-    if(!mydb.isOpen()){
+    if(!connOpen()){
         qDebug()<<"Failed to open the database";
         return;
     }
-    QSqlQuery qry;
 
-    if(qry.exec("select * from item_stock where code='"+itemcode+"' and password='"+password+"'"))
+    connOpen();
+    QSqlQuery qry;
+    qry.prepare("select * from item_stock where code='"+itemcode+"' and password='"+password+"'");
+
+    if(qry.exec())
     {
         int count = 0;
         while(qry.next())
@@ -43,6 +44,7 @@ void ItemStock::on_pushButtonLogin_clicked()
         }
         if(count==1){
             ui->labelStatus->setText("Item code and password is correct");
+            connClose();
 //            this->hide();
             ItemModify itemmodify;
             itemmodify.setModal(true);
@@ -54,4 +56,5 @@ void ItemStock::on_pushButtonLogin_clicked()
             ui->labelStatus->setText("Item code and password is incorrect");
     }
 }
+
 
