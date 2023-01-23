@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QtDebug>
 #include <qfileinfo>
+#include <itemmodify.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ItemStock; }

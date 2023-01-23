@@ -83,6 +83,7 @@ public:
 
         lineEditPassword = new QLineEdit(groupBoxLogin);
         lineEditPassword->setObjectName("lineEditPassword");
+        lineEditPassword->setEchoMode(QLineEdit::Password);
 
         horizontalLayout_2->addWidget(lineEditPassword);
 
@@ -105,7 +106,7 @@ public:
         ItemStock->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ItemStock);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 25));
+        menubar->setGeometry(QRect(0, 0, 800, 21));
         ItemStock->setMenuBar(menubar);
         statusbar = new QStatusBar(ItemStock);
         statusbar->setObjectName("statusbar");

@@ -41,12 +41,17 @@ void ItemStock::on_pushButtonLogin_clicked()
         {
             count++;
         }
-        if(count==1)
-            ui->labelStatus->setText("Username and password is correct");
+        if(count==1){
+            ui->labelStatus->setText("Item code and password is correct");
+//            this->hide();
+            ItemModify itemmodify;
+            itemmodify.setModal(true);
+            itemmodify.exec();
+        }
         if(count>1)
-            ui->labelStatus->setText("Duplicate username and password");
+            ui->labelStatus->setText("Duplicate Item code and password");
         if(count<1)
-            ui->labelStatus->setText("Username and password is incorrect");
+            ui->labelStatus->setText("Item code and password is incorrect");
     }
 }
 
