@@ -20,13 +20,12 @@ ItemModify::~ItemModify()
     delete ui;
 }
 
-void ItemModify::on_pushButtonSave_clicked()
+void ItemModify::on_pushButtonAdd_clicked()
 {
     ItemStock conn;
-    QString name, code, password, category, stock, price;
+    QString name, code, category, stock, price;
     name = ui->lineEditName->text();
     code = ui->lineEditCode->text();
-    password = ui->lineEditPassword->text();
     category = ui->lineEditCategory->text();
     stock = ui->lineEditStock->text();
     price = ui->lineEditPrice->text();
@@ -38,11 +37,11 @@ void ItemModify::on_pushButtonSave_clicked()
 
     conn.connOpen();
     QSqlQuery qry;
-    qry.prepare("insert into item_stock (name, code, password, category, stock, price) values ('"+name+"','"+code+"','"+password+"','"+category+"','"+stock+"','"+price+"')");
+    qry.prepare("insert into item_stock (name, code, category, stock, price) values ('"+name+"','"+code+"','"+category+"','"+stock+"','"+price+"')");
 
     if(qry.exec())
     {
-        QMessageBox::information(this,tr("Save"), tr("Saved"));
+        QMessageBox::information(this,tr("Add"), tr("Added"));
         conn.connClose();
     }
     else
@@ -55,10 +54,9 @@ void ItemModify::on_pushButtonSave_clicked()
 void ItemModify::on_pushButtonUpdate_clicked()
 {
     ItemStock conn;
-    QString name, code, password, category, stock, price;
+    QString name, code, category, stock, price;
     name = ui->lineEditName->text();
     code = ui->lineEditCode->text();
-    password = ui->lineEditPassword->text();
     category = ui->lineEditCategory->text();
     stock = ui->lineEditStock->text();
     price = ui->lineEditPrice->text();
@@ -70,11 +68,11 @@ void ItemModify::on_pushButtonUpdate_clicked()
 
     conn.connOpen();
     QSqlQuery qry;
-    qry.prepare("update item_stock set name='"+name+"',code='"+code+"',password='"+password+"',stock='"+stock+"',price='"+price+"' where code='"+code+"'");
+    qry.prepare("update item_stock set name='"+name+"',code='"+code+"',stock='"+stock+"',price='"+price+"' where code='"+code+"'");
 
     if(qry.exec())
     {
-        QMessageBox::information(this,tr("Edit"), tr("Updated"));
+        QMessageBox::information(this,tr("Update"), tr("Updated"));
         conn.connClose();
     }
     else
@@ -90,7 +88,6 @@ void ItemModify::on_pushButtonDelete_clicked()
     QString name, code, password, category, stock, price;
     name = ui->lineEditName->text();
     code = ui->lineEditCode->text();
-    password = ui->lineEditPassword->text();
     category = ui->lineEditCategory->text();
     stock = ui->lineEditStock->text();
     price = ui->lineEditPrice->text();

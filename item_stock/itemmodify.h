@@ -17,11 +17,12 @@ public:
     ~ItemModify();
 
 private slots:
-    void on_pushButtonSave_clicked();
+    void on_pushButtonAdd_clicked();
 
     void on_pushButtonUpdate_clicked();
 
     void on_pushButtonDelete_clicked();
+
 
 private:
     Ui::ItemModify *ui;

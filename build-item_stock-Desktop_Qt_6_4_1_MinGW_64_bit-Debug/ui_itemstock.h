@@ -33,8 +33,8 @@ public:
     QGroupBox *groupBoxLogin;
     QGridLayout *gridLayout;
     QHBoxLayout *horizontalLayout;
-    QLabel *labelItemCode;
-    QLineEdit *lineEditItemCode;
+    QLabel *labelUsername;
+    QLineEdit *lineEditUsername;
     QHBoxLayout *horizontalLayout_2;
     QLabel *labelItemCode_2;
     QLineEdit *lineEditPassword;
@@ -61,15 +61,15 @@ public:
         gridLayout->setObjectName("gridLayout");
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName("horizontalLayout");
-        labelItemCode = new QLabel(groupBoxLogin);
-        labelItemCode->setObjectName("labelItemCode");
+        labelUsername = new QLabel(groupBoxLogin);
+        labelUsername->setObjectName("labelUsername");
 
-        horizontalLayout->addWidget(labelItemCode);
+        horizontalLayout->addWidget(labelUsername);
 
-        lineEditItemCode = new QLineEdit(groupBoxLogin);
-        lineEditItemCode->setObjectName("lineEditItemCode");
+        lineEditUsername = new QLineEdit(groupBoxLogin);
+        lineEditUsername->setObjectName("lineEditUsername");
 
-        horizontalLayout->addWidget(lineEditItemCode);
+        horizontalLayout->addWidget(lineEditUsername);
 
 
         gridLayout->addLayout(horizontalLayout, 0, 0, 1, 3);
@@ -106,7 +106,7 @@ public:
         ItemStock->setCentralWidget(centralwidget);
         menubar = new QMenuBar(ItemStock);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 800, 21));
+        menubar->setGeometry(QRect(0, 0, 800, 25));
         ItemStock->setMenuBar(menubar);
         statusbar = new QStatusBar(ItemStock);
         statusbar->setObjectName("statusbar");
@@ -122,7 +122,7 @@ public:
         ItemStock->setWindowTitle(QCoreApplication::translate("ItemStock", "ItemStock", nullptr));
         labelStatus->setText(QCoreApplication::translate("ItemStock", "Status", nullptr));
         groupBoxLogin->setTitle(QCoreApplication::translate("ItemStock", "Log in to change Item in database", nullptr));
-        labelItemCode->setText(QCoreApplication::translate("ItemStock", "Item Code", nullptr));
+        labelUsername->setText(QCoreApplication::translate("ItemStock", "Username ", nullptr));
         labelItemCode_2->setText(QCoreApplication::translate("ItemStock", "Password  ", nullptr));
         pushButtonLogin->setText(QCoreApplication::translate("ItemStock", "Log in", nullptr));
     } // retranslateUi

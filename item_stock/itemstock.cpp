@@ -22,8 +22,8 @@ ItemStock::~ItemStock()
 
 void ItemStock::on_pushButtonLogin_clicked()
 {
-    QString itemcode, password;
-    itemcode = ui->lineEditItemCode->text();
+    QString username, password;
+    username = ui->lineEditUsername->text();
     password = ui->lineEditPassword->text();
 
     if(!connOpen()){
@@ -33,7 +33,7 @@ void ItemStock::on_pushButtonLogin_clicked()
 
     connOpen();
     QSqlQuery qry;
-    qry.prepare("select * from item_stock where code='"+itemcode+"' and password='"+password+"'");
+    qry.prepare("select * from login_info where username='"+username+"' and password='"+password+"'");
 
     if(qry.exec())
     {
@@ -43,7 +43,7 @@ void ItemStock::on_pushButtonLogin_clicked()
             count++;
         }
         if(count==1){
-            ui->labelStatus->setText("Item code and password is correct");
+            ui->labelStatus->setText("Username and password is correct");
             connClose();
 //            this->hide();
             ItemModify itemmodify;
@@ -51,9 +51,9 @@ void ItemStock::on_pushButtonLogin_clicked()
             itemmodify.exec();
         }
         if(count>1)
-            ui->labelStatus->setText("Duplicate Item code and password");
+            ui->labelStatus->setText("Duplicate Username and password");
         if(count<1)
-            ui->labelStatus->setText("Item code and password is incorrect");
+            ui->labelStatus->setText("Username and password is incorrect");
     }
 }
 

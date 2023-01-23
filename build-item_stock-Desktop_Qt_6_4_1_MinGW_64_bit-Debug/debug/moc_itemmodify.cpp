@@ -28,7 +28,7 @@ namespace {
 struct qt_meta_stringdata_ItemModify_t {
     uint offsetsAndSizes[10];
     char stringdata0[11];
-    char stringdata1[26];
+    char stringdata1[25];
     char stringdata2[1];
     char stringdata3[28];
     char stringdata4[28];
@@ -38,13 +38,13 @@ struct qt_meta_stringdata_ItemModify_t {
 Q_CONSTINIT static const qt_meta_stringdata_ItemModify_t qt_meta_stringdata_ItemModify = {
     {
         QT_MOC_LITERAL(0, 10),  // "ItemModify"
-        QT_MOC_LITERAL(11, 25),  // "on_pushButtonSave_clicked"
-        QT_MOC_LITERAL(37, 0),  // ""
-        QT_MOC_LITERAL(38, 27),  // "on_pushButtonUpdate_clicked"
-        QT_MOC_LITERAL(66, 27)   // "on_pushButtonDelete_clicked"
+        QT_MOC_LITERAL(11, 24),  // "on_pushButtonAdd_clicked"
+        QT_MOC_LITERAL(36, 0),  // ""
+        QT_MOC_LITERAL(37, 27),  // "on_pushButtonUpdate_clicked"
+        QT_MOC_LITERAL(65, 27)   // "on_pushButtonDelete_clicked"
     },
     "ItemModify",
-    "on_pushButtonSave_clicked",
+    "on_pushButtonAdd_clicked",
     "",
     "on_pushButtonUpdate_clicked",
     "on_pushButtonDelete_clicked"
@@ -87,7 +87,7 @@ Q_CONSTINIT const QMetaObject ItemModify::staticMetaObject = { {
     qt_incomplete_metaTypeArray<qt_meta_stringdata_ItemModify_t,
         // Q_OBJECT / Q_GADGET
         QtPrivate::TypeAndForceComplete<ItemModify, std::true_type>,
-        // method 'on_pushButtonSave_clicked'
+        // method 'on_pushButtonAdd_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_pushButtonUpdate_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
@@ -103,7 +103,7 @@ void ItemModify::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         auto *_t = static_cast<ItemModify *>(_o);
         (void)_t;
         switch (_id) {
-        case 0: _t->on_pushButtonSave_clicked(); break;
+        case 0: _t->on_pushButtonAdd_clicked(); break;
         case 1: _t->on_pushButtonUpdate_clicked(); break;
         case 2: _t->on_pushButtonDelete_clicked(); break;
         default: ;
